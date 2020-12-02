@@ -124,8 +124,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\Release\lib;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv.lib;libprotobuf.lib;LabSound.lib;libnyquist.lib;libopus.lib;libwavpack.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\Release\lib;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\labsound\bin\Release;$(ProjectDir)\..\libuv\Release;$(ProjectDir)\..\fivem\code\components\voip-mumble\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -171,6 +171,30 @@
       <Private>false</Private>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\labsound\LabSound.vcxproj">
+      <Project>{49e752ba-00b5-3c55-9e80-263a6b5502e7}</Project>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\labsound\third_party\libnyquist\libnyquist.vcxproj">
+      <Project>{72dff787-0d40-3d07-9aab-1cb18b969925}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\labsound\third_party\libnyquist\libopus.vcxproj">
+      <Project>{a69f569b-dc34-3b84-a8eb-18eca6b2f4e3}</Project>
+      <Private>false</Private>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\labsound\third_party\libnyquist\libwavpack.vcxproj">
+      <Project>{195a366c-ee04-3d88-8b2e-13fb5ec680e2}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Private>false</Private>
     </ProjectReference>
     <ProjectReference Include="..\libfivemumble\libfivemumble.vcxproj">
       <Project>{fb016884-c6a0-4675-97a5-74b2760f74e5}</Project>

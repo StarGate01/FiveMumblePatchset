@@ -49,8 +49,6 @@
   <ItemGroup>
     <ProjectReference Include="..\botan\botan.vcxproj">
       <Project>{e0fdc75c-3d16-4a18-aeaa-3dcc5bdda106}</Project>
-      <Private>false</Private>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">

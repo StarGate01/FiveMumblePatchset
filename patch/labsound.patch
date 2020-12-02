@@ -1,0 +1,24 @@
+From 5d5630eb6b866466d961772f560e8389a0a3c76e Mon Sep 17 00:00:00 2001
+From: Christoph Honal <christoph.honal@web.de>
+Date: Wed, 2 Dec 2020 09:02:10 +0100
+Subject: [PATCH] Fix cmake msvc framework selection
+
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 925a8840..fde86d2d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,5 +1,6 @@
+ 
+-cmake_minimum_required(VERSION 3.10)
++cmake_minimum_required(VERSION 3.15)
++cmake_policy(SET CMP0091 NEW)
+ include_guard()
+ 
+ project(LabSound)
+-- 
+2.24.0.windows.2
+
