@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{1dae1f10-052b-4be9-bbf2-303f6c94de5f}</ProjectGuid>
+    <RootNamespace>testapp</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;COMPILING_VOIP_MUMBLE;BOTAN_TARGET_ARCH_IS_X86_32;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\botan\Release\include\botan-3;$(ProjectDir)\..\libfivemumble\voip-mumble\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ForcedUsingFiles>
+      </ForcedUsingFiles>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\Release\lib;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;COMPILING_VOIP_MUMBLE;BOTAN_TARGET_ARCH_IS_X86_32;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\botan\Release\include\botan-3;$(ProjectDir)\..\libfivemumble\voip-mumble\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ForcedUsingFiles>
+      </ForcedUsingFiles>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\Release\lib;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="testapp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\botan\botan.vcxproj">
+      <Project>{e0fdc75c-3d16-4a18-aeaa-3dcc5bdda106}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\enet\enet.vcxproj">
+      <Project>{1d075a00-c067-4cb3-a1df-57cd95082875}</Project>
+      <Private>false</Private>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\libfivemumble\libfivemumble.vcxproj">
+      <Project>{fb016884-c6a0-4675-97a5-74b2760f74e5}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\libuv\uv.vcxproj">
+      <Project>{7cabc2cf-075c-3ecc-92f5-04580cb4480d}</Project>
+      <Private>false</Private>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\protobuf\libprotobuf.vcxproj">
+      <Project>{0cc54d48-850e-3122-90c4-19f64deb1aca}</Project>
+      <Private>false</Private>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\tbb\tbb.vcxproj">
+      <Project>{02642089-ea2a-4d18-bdb3-92d6e549d9c6}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\fivem\code\client\shared\StdInc.h" />
+    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleAudioInput.h" />
+    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleAudioOutput.h" />
+    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleAudioSink.h" />
+    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleClient.h" />
+    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleClientImpl.h" />
+    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleClientState.h" />
+    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleDataHandler.h" />
+    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleMessageHandler.h" />
+    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleTypes.h" />
+    <ClInclude Include="..\libfivemumble\voip-mumble\include\PacketDataStream.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\boost.1.72.0.0\build\boost.targets" Condition="Exists('..\packages\boost.1.72.0.0\build\boost.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt. Verwenden Sie die Wiederherstellung von NuGet-Paketen, um die fehlenden Dateien herunterzuladen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=322105". Die fehlende Datei ist "{0}".</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\boost.1.72.0.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.72.0.0\build\boost.targets'))" />
+  </Target>
+</Project>

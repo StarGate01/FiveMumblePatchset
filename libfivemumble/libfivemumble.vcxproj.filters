@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="client">
+      <UniqueIdentifier>{915122af-66f0-4cd7-8ad3-2731adbc8bb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client\shared">
+      <UniqueIdentifier>{ecfd91d9-7b6b-46cf-8992-284998df2653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components">
+      <UniqueIdentifier>{400baba7-589f-4f74-acef-4f3c33c1e0e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\net-tcp-server">
+      <UniqueIdentifier>{8a72edc0-16c8-46c0-8aad-33fa39c6081c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\net">
+      <UniqueIdentifier>{a56e7f67-ea11-4789-adf3-8539133240cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\http-client">
+      <UniqueIdentifier>{23c01dec-110c-46f0-a531-fc0028766724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\vfs-core">
+      <UniqueIdentifier>{4977ccdc-f88d-46f6-8a88-ca2853c5c544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\net-base">
+      <UniqueIdentifier>{1c72b829-b774-41ab-a50e-ce23082d62ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\voip-mumble">
+      <UniqueIdentifier>{da370572-80e9-42e7-b73c-0e033f6b66d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="voip-mumble\src\AudioUtils.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\Mumble.pb.cc">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleAudioInput.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleAudioOutput.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleChannelHandler.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleClient.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleClientState_Channel.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleClientState_User.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleCrypto.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleDataHandler.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleMessageHandler.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleProtobuf.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleUDPTunnelHandler.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleUserHandler.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleVersionHandler.cpp">
+      <Filter>components\voip-mumble</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\DebugAlias.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\EventCore.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\HookFunction.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\SHA1.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\Utils.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-base\src\ConcatPipe.cpp">
+      <Filter>components\net-base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-base\src\NetAddress.cpp">
+      <Filter>components\net-base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-base\src\NetAddress.Win32.cpp">
+      <Filter>components\net-base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-base\src\NetBuffer.cpp">
+      <Filter>components\net-base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-base\src\NetInitialization.Win32.cpp">
+      <Filter>components\net-base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-base\src\NetPeerBase.cpp">
+      <Filter>components\net-base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-base\src\NetUdpSocket.cpp">
+      <Filter>components\net-base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-base\src\SequencedDatagramChannel.cpp">
+      <Filter>components\net-base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-base\src\SequencedInputDatagramChannel.cpp">
+      <Filter>components\net-base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-base\src\SequencedOutputDatagramChannel.cpp">
+      <Filter>components\net-base</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="..\fivem\code\client\shared\AsmUtils.Win32.asm">
+      <Filter>client\shared</Filter>
+    </None>
+  </ItemGroup>
+</Project>
