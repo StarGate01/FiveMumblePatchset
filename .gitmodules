@@ -1,3 +1,6 @@
 [submodule "fivem"]
 	path = fivem
 	url = https://github.com/citizenfx/fivem
+[submodule "botan/botan"]
+	path = botan/botan
+	url = https://github.com/randombit/botan
