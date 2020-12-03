@@ -7,6 +7,9 @@ cd protobuf
 cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded -DCMAKE_BUILD_TYPE=Release --config Release -Dprotobuf_BUILD_PROTOC_BINARIES=OFF -Dprotobuf_WITH_ZLIB=OFF ..\fivem\vendor\protobuf\cmake
 cd ..
 
+cd fivem\vendor\libuv
+git apply ..\..\..\patch\libuv.patch
+cd ..\..\..\
 mkdir libuv 2> NUL
 cd libuv
 cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded -DCMAKE_BUILD_TYPE=Release --config Release -DBUILD_TESTING=OFF ..\fivem\vendor\libuv

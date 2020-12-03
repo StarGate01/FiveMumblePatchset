@@ -99,8 +99,9 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv.lib;libprotobuf.lib;LabSound.lib;libnyquist.lib;libopus.lib;libwavpack.lib;fmt.lib;webrtc.lib;user32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)\..\fmtlib\Release;$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\botan;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\labsound\bin\Release;$(ProjectDir)\..\webrtc\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv_a.lib;libprotobuf.lib;LabSound.lib;libnyquist.lib;libopus.lib;libwavpack.lib;fmt.lib;webrtc.lib;user32.lib;avcodec.lib;avdevice.lib;avfilter.lib;avformat.lib;avutil.lib;postproc.lib;swresample.lib;swscale.lib;bcrypt.lib;Iphlpapi.lib;Advapi32.lib;Kernel32.lib;Psapi.lib;Userenv.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\ffmpeg\Release\lib;$(ProjectDir)\..\fmtlib\Release;$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\botan;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\labsound\bin\Release;$(ProjectDir)\..\webrtc\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -124,8 +125,9 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv.lib;libprotobuf.lib;LabSound.lib;libnyquist.lib;libopus.lib;libwavpack.lib;fmt.lib;webrtc.lib;user32.lib;avcodec.lib;avdevice.lib;avfilter.lib;avformat.lib;avutil.lib;postproc.lib;swresample.lib;swscale.lib;bcrypt.lib</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv_a.lib;libprotobuf.lib;LabSound.lib;libnyquist.lib;libopus.lib;libwavpack.lib;fmt.lib;webrtc.lib;user32.lib;avcodec.lib;avdevice.lib;avfilter.lib;avformat.lib;avutil.lib;postproc.lib;swresample.lib;swscale.lib;bcrypt.lib;Iphlpapi.lib;Advapi32.lib;Kernel32.lib;Psapi.lib;Userenv.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)\..\ffmpeg\Release\lib;$(ProjectDir)\..\fmtlib\Release;$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\botan;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\labsound\bin\Release;$(ProjectDir)\..\webrtc\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -175,16 +177,17 @@
     <ProjectReference Include="..\fmtlib\fmt.vcxproj">
       <Project>{52d8a7ac-9100-3afb-a0fb-91a8f7e31d2a}</Project>
       <Private>false</Private>
-      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\labsound\LabSound.vcxproj">
       <Project>{49e752ba-00b5-3c55-9e80-263a6b5502e7}</Project>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
-      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Private>false</Private>
     </ProjectReference>
     <ProjectReference Include="..\labsound\third_party\libnyquist\libnyquist.vcxproj">
       <Project>{72dff787-0d40-3d07-9aab-1cb18b969925}</Project>
@@ -202,6 +205,7 @@
       <Project>{195a366c-ee04-3d88-8b2e-13fb5ec680e2}</Project>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
       <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\libfivemumble\libfivemumble.vcxproj">
       <Project>{fb016884-c6a0-4675-97a5-74b2760f74e5}</Project>
@@ -209,9 +213,10 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
-    <ProjectReference Include="..\libuv\uv.vcxproj">
-      <Project>{7cabc2cf-075c-3ecc-92f5-04580cb4480d}</Project>
+    <ProjectReference Include="..\libuv\uv_a.vcxproj">
+      <Project>{7863f3d0-d0c7-3f9e-be2a-9bec97f5f567}</Project>
       <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
     <ProjectReference Include="..\protobuf\libprotobuf.vcxproj">
@@ -223,20 +228,16 @@
     </ProjectReference>
     <ProjectReference Include="..\tbb\tbb.vcxproj">
       <Project>{02642089-ea2a-4d18-bdb3-92d6e549d9c6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Private>false</Private>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\fivem\code\client\shared\StdInc.h" />
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleAudioInput.h" />
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleAudioOutput.h" />
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleAudioSink.h" />
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleClient.h" />
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleClientImpl.h" />
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleClientState.h" />
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleDataHandler.h" />
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleMessageHandler.h" />
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleTypes.h" />
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\PacketDataStream.h" />
+    <ProjectReference Include="..\webrtc\webrtc.vcxproj">
+      <Project>{f2ef2043-92f1-409b-a1af-56a5aa5e9a6f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <Private>false</Private>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

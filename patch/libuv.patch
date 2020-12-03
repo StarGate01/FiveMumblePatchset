@@ -1,0 +1,25 @@
+From a4543571afb053ac1e7ebe95f09e92dbbf84261a Mon Sep 17 00:00:00 2001
+From: Christoph Honal <christoph.honal@web.de>
+Date: Thu, 3 Dec 2020 15:25:11 +0100
+Subject: [PATCH] Fix cmake msvc framework selection
+
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2518c747..e9b62b41 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,6 +1,7 @@
+-cmake_minimum_required(VERSION 3.4)
++cmake_minimum_required(VERSION 3.15)
+ project(libuv LANGUAGES C)
+ 
++cmake_policy(SET CMP0091 NEW)
+ cmake_policy(SET CMP0057 NEW) # Enable IN_LIST operator
+ cmake_policy(SET CMP0064 NEW) # Support if (TEST) operator
+ 
+-- 
+2.24.0.windows.2
+

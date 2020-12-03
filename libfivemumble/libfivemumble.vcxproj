@@ -112,7 +112,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;COMPILING_NET;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;COMPILING_SHARED_LIBC;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;COMPILING_SHARED_LIBC;_LIB;COMPILING_NET;COMPILING_VOIP_MUMBLE;COMPILING_NET_BASE;COMPILING_NET_TCP_SERVER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -141,7 +141,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;COMPILING_NET;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;COMPILING_SHARED_LIBC;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;COMPILING_SHARED_LIBC;_LIB;COMPILING_NET;COMPILING_VOIP_MUMBLE;COMPILING_NET_BASE;COMPILING_NET_TCP_SERVER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -150,6 +150,7 @@
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>

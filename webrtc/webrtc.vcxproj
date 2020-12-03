@@ -253,7 +253,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;WEBRTC_NS_FIXED=1;WEBRTC_WIN=1;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD=1;NOMINMAX;WIN32_LEAN_AND_MEAN;NDEBUG=1;HAVE_NEON=0;_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;WEBRTC_NS_FIXED=1;WEBRTC_WIN=1;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD=1;NOMINMAX;WIN32_LEAN_AND_MEAN;_DEBUG;HAVE_NEON=0;_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -277,6 +277,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -285,6 +286,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalOptions>/OPT:NOREF</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

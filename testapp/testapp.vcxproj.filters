@@ -9,52 +9,11 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="voip-mumble">
-      <UniqueIdentifier>{fbaa9b0b-2d11-4d22-8d28-f399ae277255}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="shared">
-      <UniqueIdentifier>{27057ada-0075-44e9-a988-d33331a9d0aa}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="testapp.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleAudioInput.h">
-      <Filter>voip-mumble</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleAudioOutput.h">
-      <Filter>voip-mumble</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleAudioSink.h">
-      <Filter>voip-mumble</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleClient.h">
-      <Filter>voip-mumble</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleClientImpl.h">
-      <Filter>voip-mumble</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleClientState.h">
-      <Filter>voip-mumble</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleDataHandler.h">
-      <Filter>voip-mumble</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleMessageHandler.h">
-      <Filter>voip-mumble</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\MumbleTypes.h">
-      <Filter>voip-mumble</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libfivemumble\voip-mumble\include\PacketDataStream.h">
-      <Filter>voip-mumble</Filter>
-    </ClInclude>
-    <ClInclude Include="..\fivem\code\client\shared\StdInc.h">
-      <Filter>shared</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
