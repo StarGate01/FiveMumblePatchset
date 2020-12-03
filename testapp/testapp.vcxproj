@@ -174,6 +174,12 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\ffmpeg\ffmpeg.vcxproj">
+      <Project>{d797ddaa-9fa8-44cd-bec6-23b13dc0c4c7}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
     <ProjectReference Include="..\fmtlib\fmt.vcxproj">
       <Project>{52d8a7ac-9100-3afb-a0fb-91a8f7e31d2a}</Project>
       <Private>false</Private>

@@ -21,11 +21,11 @@ Make sure your System contains:
 
 If needed, adjust the toolchain paths in `setup.bat` and `ffmpeg/build.sh`.
 
-Run `setup.bat`.  This will apply a few patches to the build toolchains and generate the missing Visual Studio projects by invoking CMake and the botan build tool. It will also compile FFmpeg using Msys2 and MSVC. Then open the Visual Studio Solution. Compile the `libfivemumble` or `testapp` project.
+Run `setup.bat`.  This will apply a few patches to the build toolchains and generate the missing Visual Studio projects by invoking CMake or other build tools. Then open the Visual Studio Solution. Compile the `libfivemumble` or `testapp` project.
 
 ## Subprojects and how they are generated
 
-- ffmpeg (autotools)
+- ffmpeg (autotools) (Requires Msys2)
 - botan (python)
 - enet (VS)
 - fmt (CMake)
