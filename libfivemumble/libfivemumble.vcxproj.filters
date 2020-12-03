@@ -28,6 +28,9 @@
     <Filter Include="components\voip-mumble">
       <UniqueIdentifier>{da370572-80e9-42e7-b73c-0e033f6b66d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="client\common">
+      <UniqueIdentifier>{24c61008-bb57-4c4c-b1ce-2a287a1e5d42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="voip-mumble\src\AudioUtils.cpp">
@@ -119,6 +122,42 @@
     </ClCompile>
     <ClCompile Include="..\fivem\code\components\net-base\src\SequencedOutputDatagramChannel.cpp">
       <Filter>components\net-base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\MultiplexTcpServer.cpp">
+      <Filter>components\net-tcp-server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\ReverseTcpServer.cpp">
+      <Filter>components\net-tcp-server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\TcpServer.cpp">
+      <Filter>components\net-tcp-server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\TcpServerManager.cpp">
+      <Filter>components\net-tcp-server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\TLSServer.cpp">
+      <Filter>components\net-tcp-server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\UvLoopHolder.cpp">
+      <Filter>components\net-tcp-server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\UvLoopManager.cpp">
+      <Filter>components\net-tcp-server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\UvTcpServer.cpp">
+      <Filter>components\net-tcp-server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\Utils.Win32.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\common\CfxLocale.Win32.cpp">
+      <Filter>client\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\common\Error.cpp">
+      <Filter>client\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\common\StdInc.cpp">
+      <Filter>client\common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

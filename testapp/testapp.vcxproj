@@ -99,8 +99,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\Release\lib;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv.lib;libprotobuf.lib;LabSound.lib;libnyquist.lib;libopus.lib;libwavpack.lib;fmt.lib;webrtc.lib;user32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\fmtlib\Release;$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\botan;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\labsound\bin\Release;$(ProjectDir)\..\webrtc\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,7 +111,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;COMPILING_VOIP_MUMBLE;BOTAN_TARGET_ARCH_IS_X86_32;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\botan\Release\include\botan-3;$(ProjectDir)\..\libfivemumble\voip-mumble\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\botan\botan\build\include;$(ProjectDir)\..\libfivemumble\voip-mumble\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ForcedUsingFiles>
       </ForcedUsingFiles>
@@ -124,8 +124,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv.lib;libprotobuf.lib;LabSound.lib;libnyquist.lib;libopus.lib;libwavpack.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\Release\lib;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\labsound\bin\Release;$(ProjectDir)\..\libuv\Release;$(ProjectDir)\..\fivem\code\components\voip-mumble\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;winmm.lib;libfivemumble.lib;botan.lib;enet.lib;tbb.lib;uv.lib;libprotobuf.lib;LabSound.lib;libnyquist.lib;libopus.lib;libwavpack.lib;fmt.lib;webrtc.lib;user32.lib;avcodec.lib;avdevice.lib;avfilter.lib;avformat.lib;avutil.lib;postproc.lib;swresample.lib;swscale.lib;bcrypt.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\ffmpeg\Release\lib;$(ProjectDir)\..\fmtlib\Release;$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\libfivemumble\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\botan;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\labsound\bin\Release;$(ProjectDir)\..\webrtc\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -169,6 +169,13 @@
     <ProjectReference Include="..\enet\enet.vcxproj">
       <Project>{1d075a00-c067-4cb3-a1df-57cd95082875}</Project>
       <Private>false</Private>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\fmtlib\fmt.vcxproj">
+      <Project>{52d8a7ac-9100-3afb-a0fb-91a8f7e31d2a}</Project>
+      <Private>false</Private>
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

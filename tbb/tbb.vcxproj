@@ -19,130 +19,53 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\arena.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\cache_aligned_allocator.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\concurrent_hash_map.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\concurrent_monitor.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\concurrent_queue.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\concurrent_vector.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\condition_variable.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\critical_section.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\dynamic_link.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\governor.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\itt_notify.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\cache_aligned_allocator.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\market.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\mutex.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\observer_proxy.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\pipeline.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\private_server.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\queuing_mutex.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\queuing_rw_mutex.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\reader_writer_lock.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\spin_rw_mutex.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\x86_rtm_rw_mutex.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\spin_mutex.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\critical_section.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\mutex.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\recursive_mutex.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\condition_variable.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\tbb_thread.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\concurrent_monitor.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\scheduler.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\semaphore.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\private_server.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\rml\client\rml_tbb.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\tbb_misc.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\tbb_misc_ex.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\spin_mutex.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\spin_rw_mutex.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\task.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\task_group_context.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\governor.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\market.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\arena.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\scheduler.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\observer_proxy.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\tbb_statistics.cpp" />
     <ClCompile Include="..\fivem\vendor\tbb\src\tbb\tbb_main.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\old\concurrent_vector_v2.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\old\concurrent_queue_v2.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\old\spin_rw_mutex_v2.cpp" />
-    <ClCompile Include="..\fivem\vendor\tbb\src\old\task_v2.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\tbb_misc.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\tbb_misc_ex.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\tbb_statistics.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\tbb_thread.cpp" />
+    <ClCompile Include="..\fivem\vendor\tbb\src\tbb\x86_rtm_rw_mutex.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\internal\_concurrent_queue_impl.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\_tbb_windef.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\aligned_space.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\atomic.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\blocked_range.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\blocked_range2d.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\blocked_range3d.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\blocked_rangeNd.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\cache_aligned_allocator.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\combinable.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\concurrent_hash_map.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\tbb\concurrent_monitor.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\concurrent_priority_queue.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\concurrent_queue.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\old\concurrent_queue_v2.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\concurrent_vector.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\old\concurrent_vector_v2.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\critical_section.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\tbb\dynamic_link.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\enumerable_thread_specific.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\tbb\gate.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_allocator.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_assert.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_bad_expr.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_barrier.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_concurrency_tracker.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_cpu.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_eh.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_iterator.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_m128.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_memory.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\harness_report.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\machine\ibm_aix51.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\tbb\itt_notify.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\machine\linux_common.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\machine\linux_ia32.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\machine\linux_ia64.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\machine\linux_intel64.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\machine\mac_ppc.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\mutex.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\null_mutex.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\null_rw_mutex.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\parallel_do.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\parallel_for.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\parallel_for_each.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\parallel_invoke.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\parallel_reduce.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\parallel_scan.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\parallel_sort.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\parallel_while.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\partitioner.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\pipeline.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\compat\ppl.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\queuing_mutex.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\queuing_rw_mutex.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\reader_writer_lock.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\recursive_mutex.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\scalable_allocator.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\tbb\semaphore.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\spin_mutex.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\spin_rw_mutex.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\old\spin_rw_mutex_v2.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\task.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\task_group.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\task_scheduler_init.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\task_scheduler_observer.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\tbb.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\tbb_allocator.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\tbb\tbb_assert_impl.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\tbb_config.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\tbb_exception.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\tbb_machine.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\tbb\tbb_misc.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\tbb_profiling.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\tbb_stddef.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\tbb_thread.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\tbb\tbb_version.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\tbbmalloc_proxy.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\test_allocator.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\test\test_allocator_STL.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\tick_count.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\src\tbb\tls.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\machine\windows_ia32.h" />
-    <ClInclude Include="..\fivem\vendor\tbb\include\tbb\machine\windows_intel64.h" />
+    <MASM Include="..\fivem\vendor\tbb\src\tbb\ia32-masm\atomic_support.asm">
+      <FileType>Document</FileType>
+    </MASM>
+    <MASM Include="..\fivem\vendor\tbb\src\tbb\ia32-masm\itsx.asm">
+      <FileType>Document</FileType>
+    </MASM>
+    <MASM Include="..\fivem\vendor\tbb\src\tbb\ia32-masm\lock_byte.asm">
+      <FileType>Document</FileType>
+    </MASM>
+    <None Include="exports.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\fivem\vendor\tbb\src\tbb\tbb_resource.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -180,6 +103,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
@@ -235,7 +159,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;USE_WINTHREAD;__TBB_BUILD;__TBB_DYNAMIC_LOAD_ENABLED=0;_TBB_USE_DEBUG=0;_HAS_STD_BYTE=0;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WIN32;_CRT_SECURE_NO_WARNINGS;USE_WINTHREAD;__TBB_BUILD;__TBB_WORDSIZE=4;_TBB_USE_DEBUG=0;_HAS_STD_BYTE=0;__TBB_x86_32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -249,6 +173,21 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
+    </Lib>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\tbb\src;$(ProjectDir)\..\fivem\vendor\tbb\build\vs2013;$(ProjectDir)\..\fivem\vendor\tbb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(ProjectDir)\..\fivem\vendor\tbb\src\tbb\tbb_resource.def</ResourceOutputFileName>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -286,5 +225,6 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
   </ImportGroup>
 </Project>

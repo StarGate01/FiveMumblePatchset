@@ -1,0 +1,30 @@
+From ba3643ecd8a3cf3ed6781dd353772fc16b721a25 Mon Sep 17 00:00:00 2001
+From: Christoph Honal <christoph.honal@web.de>
+Date: Wed, 2 Dec 2020 09:31:24 +0100
+Subject: [PATCH] Fix cmake msvc framework selection
+
+---
+ CMakeLists.txt | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ce9dbf95..670f0dfd 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,10 +1,11 @@
+ cmake_minimum_required(VERSION 3.1.0)
+ 
+ # Use newer policies if available, up to most recent tested version of CMake.
+-if(${CMAKE_VERSION} VERSION_LESS 3.11)
++if(${CMAKE_VERSION} VERSION_LESS 3.15)
+   cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
+ else()
+-  cmake_policy(VERSION 3.11)
++  cmake_policy(VERSION 3.15)
++  cmake_policy(SET CMP0091 NEW)
+ endif()
+ 
+ # Determine if fmt is built as a subproject (using add_subdirectory)
+-- 
+2.24.0.windows.2
+

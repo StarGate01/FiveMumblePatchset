@@ -4,3 +4,6 @@
 [submodule "botan/botan"]
 	path = botan/botan
 	url = https://github.com/randombit/botan
+[submodule "ffmpeg/ffmpeg"]
+	path = ffmpeg/ffmpeg
+	url = https://github.com/FFmpeg/FFmpeg

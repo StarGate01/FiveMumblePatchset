@@ -11,11 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\fivem\code\client\common\CfxLocale.Win32.cpp" />
+    <ClCompile Include="..\fivem\code\client\common\Error.cpp" />
+    <ClCompile Include="..\fivem\code\client\common\StdInc.cpp" />
     <ClCompile Include="..\fivem\code\client\shared\DebugAlias.cpp" />
     <ClCompile Include="..\fivem\code\client\shared\EventCore.cpp" />
     <ClCompile Include="..\fivem\code\client\shared\HookFunction.cpp" />
     <ClCompile Include="..\fivem\code\client\shared\SHA1.cpp" />
     <ClCompile Include="..\fivem\code\client\shared\Utils.cpp" />
+    <ClCompile Include="..\fivem\code\client\shared\Utils.Win32.cpp" />
     <ClCompile Include="..\fivem\code\components\net-base\src\ConcatPipe.cpp" />
     <ClCompile Include="..\fivem\code\components\net-base\src\NetAddress.cpp" />
     <ClCompile Include="..\fivem\code\components\net-base\src\NetAddress.Win32.cpp" />
@@ -26,6 +30,14 @@
     <ClCompile Include="..\fivem\code\components\net-base\src\SequencedDatagramChannel.cpp" />
     <ClCompile Include="..\fivem\code\components\net-base\src\SequencedInputDatagramChannel.cpp" />
     <ClCompile Include="..\fivem\code\components\net-base\src\SequencedOutputDatagramChannel.cpp" />
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\MultiplexTcpServer.cpp" />
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\ReverseTcpServer.cpp" />
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\TcpServer.cpp" />
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\TcpServerManager.cpp" />
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\TLSServer.cpp" />
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\UvLoopHolder.cpp" />
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\UvLoopManager.cpp" />
+    <ClCompile Include="..\fivem\code\components\net-tcp-server\src\UvTcpServer.cpp" />
     <ClCompile Include="voip-mumble\src\AudioUtils.cpp" />
     <ClCompile Include="voip-mumble\src\Mumble.pb.cc" />
     <ClCompile Include="voip-mumble\src\MumbleAudioInput.cpp" />
@@ -49,6 +61,8 @@
   <ItemGroup>
     <ProjectReference Include="..\botan\botan.vcxproj">
       <Project>{e0fdc75c-3d16-4a18-aeaa-3dcc5bdda106}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -98,7 +112,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;COMPILING_NET;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;COMPILING_NET;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;COMPILING_SHARED_LIBC;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -127,11 +141,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;COMPILING_NET;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;COMPILING_NET;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;COMPILING_SHARED_LIBC;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\botan\Release\include\botan-3;$(ProjectDir)\voip-mumble\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\botan\botan\build\include;$(ProjectDir)\voip-mumble\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
