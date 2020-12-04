@@ -12,6 +12,7 @@
 
 #include <json.hpp>
 
+#include <CoreConsole.h>
 #include <UvLoopManager.h>
 
 
@@ -93,7 +94,7 @@ void MumbleClient::Initialize()
 
 			m_tcp->on<uvw::ErrorEvent>([this](const uvw::ErrorEvent& ev, uvw::TCPHandle& tcp)
 			{
-				printf("Mumble, connecting failed: %s\n", ev.what());
+				console::DPrintf("Mumble", "connecting failed: %s\n", ev.what());
 
 				m_connectionInfo.isConnecting = false;
 				m_idleTimer->start(2s, 500ms);
@@ -104,7 +105,7 @@ void MumbleClient::Initialize()
 			m_tcp->on<uvw::EndEvent>([this](const uvw::EndEvent& ev, uvw::TCPHandle& tcp)
 			{
 				// TCP close, graceful?
-				printf("Mumble, TCP close.\n");
+				console::DPrintf("Mumble", "TCP close.\n");
 
 				m_connectionInfo.isConnecting = false;
 				m_idleTimer->start(2s, 500ms);
@@ -360,7 +361,7 @@ void MumbleClient::Initialize()
 			}
 			else
 			{
-				printf("Mumble, Reconnecting.\n");
+				console::DPrintf("Mumble", "Reconnecting.\n");
 
 				m_connectTimer->start(2500ms, 0s);
 				m_idleTimer->stop();
@@ -958,7 +959,7 @@ void MumbleClient::WriteToSocket(const uint8_t buf[], size_t length)
 
 void MumbleClient::OnAlert(Botan::TLS::Alert alert, const uint8_t[], size_t)
 {
-	printf("Mumble, TLS alert: %s\n", alert.type_string().c_str());
+	console::DPrintf("Mumble", "TLS alert: %s\n", alert.type_string().c_str());
 
 	if (alert.is_fatal() || alert.type() == Botan::TLS::Alert::CLOSE_NOTIFY)
 	{
@@ -978,7 +979,7 @@ void MumbleClient::OnReceive(const uint8_t buf[], size_t length)
 
 bool MumbleClient::OnHandshake(const Botan::TLS::Session& session)
 {
-	printf("Mumble, Got session %s %s\n", session.version().to_string().c_str(), session.ciphersuite().to_string().c_str());
+	console::DPrintf("Mumble", "Got session %s %s\n", session.version().to_string().c_str(), session.ciphersuite().to_string().c_str());
 
 	return true;
 }

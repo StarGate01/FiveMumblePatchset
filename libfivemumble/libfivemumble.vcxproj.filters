@@ -4,9 +4,6 @@
     <Filter Include="client">
       <UniqueIdentifier>{915122af-66f0-4cd7-8ad3-2731adbc8bb9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="client\shared">
-      <UniqueIdentifier>{ecfd91d9-7b6b-46cf-8992-284998df2653}</UniqueIdentifier>
-    </Filter>
     <Filter Include="components">
       <UniqueIdentifier>{400baba7-589f-4f74-acef-4f3c33c1e0e4}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,18 @@
     </Filter>
     <Filter Include="client\common">
       <UniqueIdentifier>{24c61008-bb57-4c4c-b1ce-2a287a1e5d42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client\shared">
+      <UniqueIdentifier>{5ae46914-fcee-40f9-891d-9869518bd4ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client\citicore">
+      <UniqueIdentifier>{3009afd9-bd08-42a8-baf0-2677b5c4ad89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client\citicore\console">
+      <UniqueIdentifier>{fa6b84a6-8d5b-46c8-90c7-e0983366f077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client\citicore\se">
+      <UniqueIdentifier>{6963de53-07c9-4b8d-823a-4f245689dc1e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -77,21 +86,6 @@
     </ClCompile>
     <ClCompile Include="voip-mumble\src\MumbleVersionHandler.cpp">
       <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="..\fivem\code\client\shared\DebugAlias.cpp">
-      <Filter>client\shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\fivem\code\client\shared\EventCore.cpp">
-      <Filter>client\shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\fivem\code\client\shared\HookFunction.cpp">
-      <Filter>client\shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\fivem\code\client\shared\SHA1.cpp">
-      <Filter>client\shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\fivem\code\client\shared\Utils.cpp">
-      <Filter>client\shared</Filter>
     </ClCompile>
     <ClCompile Include="..\fivem\code\components\net-base\src\ConcatPipe.cpp">
       <Filter>components\net-base</Filter>
@@ -147,9 +141,6 @@
     <ClCompile Include="..\fivem\code\components\net-tcp-server\src\UvTcpServer.cpp">
       <Filter>components\net-tcp-server</Filter>
     </ClCompile>
-    <ClCompile Include="..\fivem\code\client\shared\Utils.Win32.cpp">
-      <Filter>client\shared</Filter>
-    </ClCompile>
     <ClCompile Include="..\fivem\code\client\common\CfxLocale.Win32.cpp">
       <Filter>client\common</Filter>
     </ClCompile>
@@ -159,11 +150,52 @@
     <ClCompile Include="..\fivem\code\client\common\StdInc.cpp">
       <Filter>client\common</Filter>
     </ClCompile>
+    <ClCompile Include="..\fivem\code\client\citicore\InstanceRegistry.cpp">
+      <Filter>client\citicore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\citicore\DebugFlags.cpp">
+      <Filter>client\citicore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\citicore\console\Console.Base.cpp">
+      <Filter>client\citicore\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\citicore\console\Console.cpp">
+      <Filter>client\citicore\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\citicore\console\Console.Variables.cpp">
+      <Filter>client\citicore\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\citicore\console\Console.Commands.cpp">
+      <Filter>client\citicore\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\citicore\se\Security.cpp">
+      <Filter>client\citicore\se</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\DebugAlias.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\EventCore.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\HookFunction.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\SHA1.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\Utils.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\fivem\code\client\shared\Utils.Win32.cpp">
+      <Filter>client\shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="..\fivem\code\client\shared\AsmUtils.Win32.asm">
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\fivem\code\client\shared\Registry.h">
       <Filter>client\shared</Filter>
-    </None>
+    </ClInclude>
   </ItemGroup>
 </Project>

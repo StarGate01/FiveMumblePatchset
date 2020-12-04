@@ -1,18 +1,53 @@
-// testapp.cpp : Diese Datei enthält die Funktion "main". Hier beginnt und endet die Ausführung des Programms.
-//
-
 #include <iostream>
 
 #include <StdInc.h>
+#include <CoreConsole.h>
 #include <UvLoopHolder.h>
 #include <MumbleClientImpl.h>
+#include <codecvt>
+
+#include <dsound.h>
+
+std::wstring_convert<std::codecvt_utf8<wchar_t>> wideToNarrow;
 
 MumbleClient client;
+
+struct AudioDevice
+{
+	GUID guid;
+	std::string guidString;
+	std::string name;
+};
+
+std::vector<AudioDevice> inputDevices;
+std::vector<AudioDevice> outputDevices;
+
+LPDSENUMCALLBACKW enumCb = [](LPGUID guid, LPCWSTR desc, LPCWSTR, void* cxt) -> BOOL
+{
+	if (guid != nullptr)
+	{
+		((std::vector<AudioDevice>*)cxt)->push_back({
+			*guid,
+			fmt::sprintf("{%08lX-%04hX-%04hX-%02hX%02hX-%02hX%02hX%02hX%02hX%02hX%02hX}", guid->Data1, guid->Data2, guid->Data3,
+				guid->Data4[0], guid->Data4[1], guid->Data4[2], guid->Data4[3],
+				guid->Data4[4], guid->Data4[5], guid->Data4[6], guid->Data4[7]),
+			wideToNarrow.to_bytes(std::wstring(desc))
+			});
+	}
+	return TRUE;
+};
+
+
+static void LogPrintListener(ConsoleChannel channel, const char* msg)
+{
+	std::cout << "[" << channel << "] " << fmt::sprintf("%s", msg);
+}
 
 int main()
 {
     std::cout << "Mumble FiveM library test app!" << std::endl;
 
+	console::CoreAddPrintListener(LogPrintListener);
 
     auto remote = net::PeerAddress::FromString("chrz.de", 64738, net::PeerAddress::LookupType::ResolveName);
     if (!remote.has_value())
@@ -21,7 +56,24 @@ int main()
         return 1;
     }
 
+	DirectSoundCaptureEnumerateW(enumCb, &inputDevices);
+	DirectSoundEnumerateW(enumCb, &outputDevices);
+	std::cout << "Input devices:" << std::endl;
+	for (int i = 0; i < inputDevices.size(); i++) std::cout << "  " << i << ": " << 
+		inputDevices[i].name << std::endl << "    " << inputDevices[i].guidString << std::endl;
+	std::cout << "Output devices:" << std::endl;
+	for (int i = 0; i < outputDevices.size(); i++) std::cout << "  " << i << ": " << 
+		outputDevices[i].name << std::endl << "    " << outputDevices[i].guidString << std::endl;
+
     client.Initialize();
+
+	std::cout << "Setting input device" << std::endl;
+	client.SetInputDevice(inputDevices[0].guidString);
+
+	std::cout << "Setting output device" << std::endl;
+	client.SetOutputDevice(outputDevices[0].guidString);
+	
+	client.SetChannel("CHRZ");
     client.ConnectAsync(remote.get(), "testapp").then([](concurrency::task<MumbleConnectionInfo*> task)
 	{
 		try
@@ -39,16 +91,10 @@ int main()
 
 	std::cin.get();
 
+	if (client.GetConnectionInfo()->isConnected)
+	{
+		client.DisconnectAsync().wait();
+	}
+
     return 0;
 }
-
-// Programm ausführen: STRG+F5 oder Menüeintrag "Debuggen" > "Starten ohne Debuggen starten"
-// Programm debuggen: F5 oder "Debuggen" > Menü "Debuggen starten"
-
-// Tipps für den Einstieg: 
-//   1. Verwenden Sie das Projektmappen-Explorer-Fenster zum Hinzufügen/Verwalten von Dateien.
-//   2. Verwenden Sie das Team Explorer-Fenster zum Herstellen einer Verbindung mit der Quellcodeverwaltung.
-//   3. Verwenden Sie das Ausgabefenster, um die Buildausgabe und andere Nachrichten anzuzeigen.
-//   4. Verwenden Sie das Fenster "Fehlerliste", um Fehler anzuzeigen.
-//   5. Wechseln Sie zu "Projekt" > "Neues Element hinzufügen", um neue Codedateien zu erstellen, bzw. zu "Projekt" > "Vorhandenes Element hinzufügen", um dem Projekt vorhandene Codedateien hinzuzufügen.
-//   6. Um dieses Projekt später erneut zu öffnen, wechseln Sie zu "Datei" > "Öffnen" > "Projekt", und wählen Sie die SLN-Datei aus.

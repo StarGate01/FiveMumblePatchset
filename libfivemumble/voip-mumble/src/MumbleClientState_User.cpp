@@ -6,6 +6,7 @@
  */
 
 #include "StdInc.h"
+#include <CoreConsole.h>
 #include "MumbleClientState.h"
 #include "MumbleClientImpl.h"
 #include "MumbleMessageHandler.h"
@@ -96,7 +97,7 @@ void MumbleClientState::ProcessUserState(MumbleProto::UserState& userState)
 
 			auto name = user->GetName();
 
-			printf("Mumble, New user: %s\n", std::string(name.begin(), name.end()).c_str());
+			console::DPrintf("Mumble", "New user: %s\n", std::string(name.begin(), name.end()).c_str());
 		}
 		else
 		{

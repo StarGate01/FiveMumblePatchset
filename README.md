@@ -71,3 +71,4 @@ Run `setup.bat`.  This will apply a few patches to the build toolchains and gene
 - Kernel32.lib
 - Psapi.lib
 - Userenv.lib
+- dsound.lib

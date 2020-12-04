@@ -6,6 +6,7 @@
  */
 
 #include "StdInc.h"
+#include <CoreConsole.h>
 #include "MumbleClientState.h"
 #include "MumbleClientImpl.h"
 #include "MumbleMessageHandler.h"
@@ -66,7 +67,7 @@ void MumbleClientState::ProcessChannelState(MumbleProto::ChannelState& channelSt
 
 			auto name = channel.GetName();
 
-			printf("Mumble, New channel: %s\n", std::string(name.begin(), name.end()).c_str());
+			console::DPrintf("Mumble", "New channel: %s\n", std::string(name.begin(), name.end()).c_str());
 		}
 		else
 		{

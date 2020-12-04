@@ -77,10 +77,14 @@ void MumbleAudioInput::ThreadFunc()
 	SetThreadName(-1, "[Mumble] Audio Input Thread");
 
 	// initialize COM for the current thread
-	CoInitialize(nullptr);
+	HRESULT hr = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+	if (FAILED(hr))
+	{
+		trace("%s: failed CoInitializeEx\n", __func__);
+		return;
+	}
 
-	HRESULT hr = CoCreateInstance(CLSID_MMDeviceEnumerator, nullptr, CLSCTX_INPROC_SERVER, IID_IMMDeviceEnumerator, (void**)m_mmDeviceEnumerator.GetAddressOf());
-
+	hr = CoCreateInstance(CLSID_MMDeviceEnumerator, nullptr, CLSCTX_INPROC_SERVER, IID_IMMDeviceEnumerator, (void**)m_mmDeviceEnumerator.GetAddressOf());
 	if (FAILED(hr))
 	{
 		return;
