@@ -1,6 +1,6 @@
 # FiveMumblePatchset
 
-A set up tools and patches to compile the Mumble-Client component of the FiveM project (https://github.com/citizenfx/fivem) to a standalone Win32 library.
+A set up tools and patches to compile the Mumble-Client component of the FiveM project (https://github.com/citizenfx/fivem) to a standalone Win32 DLL.
 
 ## Building
 
@@ -11,7 +11,7 @@ Pull this repository using `git clone --recurse-submodules` to download all depe
 Make sure your System contains:
  - Visual Studio Community 2019
  - CMake >= 3.15
- - Msys2
+ - Msys2 (x64)
    - make
    - autoconf
    - diffutils
@@ -21,7 +21,7 @@ Make sure your System contains:
 
 If needed, adjust the toolchain paths in `setup.bat` and `ffmpeg/build.sh`.
 
-Run `setup.bat`.  This will apply a few patches to the build toolchains and generate the missing Visual Studio projects by invoking CMake or other build tools. Then open the Visual Studio Solution. Compile the `libfivemumble` or `testapp` project.
+**Run `setup.bat`**.  This will apply a few patches to the build toolchains and generate the missing Visual Studio projects by invoking CMake or other build tools. **Then** open the Visual Studio Solution. Compile the `libfivemumble` or `testapp` project.
 
 ## Subprojects and how they are generated
 
@@ -71,4 +71,3 @@ Run `setup.bat`.  This will apply a few patches to the build toolchains and gene
 - Kernel32.lib
 - Psapi.lib
 - Userenv.lib
-- dsound.lib
