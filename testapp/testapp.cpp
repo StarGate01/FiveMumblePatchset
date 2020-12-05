@@ -4,11 +4,12 @@
 
 Mumble mumble;
 
-int main()
+int main(int argc, char* argv[])
 {
     std::cout << "Mumble FiveM library test app!" << std::endl;
 
-    mumble.Test();
+    std::string name = std::string(argv[1]);
+    mumble.Test(name);
 
     return 0;
 }

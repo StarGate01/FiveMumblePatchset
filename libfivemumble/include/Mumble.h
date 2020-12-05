@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include "CompilationControl.h"
 
 class EXPORT Mumble
@@ -8,7 +9,7 @@ class EXPORT Mumble
 public:
 	Mumble();
 
-	void Test();
+	void Test(const std::string& name);
 
 };
 

@@ -22,7 +22,7 @@ MumbleClient client;
 std::vector<AudioDevice> inputDevices;
 std::vector<AudioDevice> outputDevices;
 
-void Mumble::Test()
+void Mumble::Test(const std::string& name)
 {
 	// Handle audio devices
 	CoInitializeEx(nullptr, COINIT_MULTITHREADED);
@@ -51,7 +51,7 @@ void Mumble::Test()
 		return std::optional<std::array<float, 3>>({ 0.0f, 0.0f, 0.0f });
 		});
 
-	client.ConnectAsync(remote.get(), "testapp", "grafkuerb").then([](concurrency::task<MumbleConnectionInfo*> task)
+	client.ConnectAsync(remote.get(), name, "grafkuerb").then([](concurrency::task<MumbleConnectionInfo*> task)
 		{
 			try
 			{
