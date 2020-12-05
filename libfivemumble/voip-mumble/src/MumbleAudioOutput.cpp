@@ -17,6 +17,7 @@
 #include <MumbleClientImpl.h>
 #include <MumbleClientState.h>
 #include <mmsystem.h>
+#include <CoreConsole.h>
 
 #include <xaudio2fx.h>
 
@@ -589,7 +590,7 @@ void MumbleAudioOutput::HandleClientConnect(const MumbleUser& user)
 	voice->Start();
 
 	// disable volume initially, we will only set it once we get position data from the client
-	voice->SetVolume(0.0f);
+	voice->SetVolume(0.0f); // TODO but why
 
 	state->voice = voice;
 
@@ -1217,12 +1218,18 @@ void MumbleAudioOutput::InitializeAudioDevice()
 
 	if (xa2Dll)
 	{
+		console::DPrintf("Mumble", "XAudio2_8 loaded\n");
+
 		auto _XAudio2Create = (decltype(&XAudio2Create))GetProcAddress(xa2Dll, "XAudio2Create");
 
 		if (FAILED(_XAudio2Create(m_xa2.ReleaseAndGetAddressOf(), 0, 1)))
 		{
 			trace("%s: failed XA2.8 create\n", __func__);
 			return;
+		}
+		else
+		{
+			console::DPrintf("Mumble", "XA2.8 created\n");
 		}
 
 		_CreateAudioReverb = (decltype(&CreateAudioReverb))GetProcAddress(xa2Dll, "CreateAudioReverb");
@@ -1235,6 +1242,10 @@ void MumbleAudioOutput::InitializeAudioDevice()
 		{
 			trace("Could not load any XAudio DLL.\n");
 			return;
+		}
+		else
+		{
+			console::DPrintf("Mumble", "XAudio2_7 loaded\n");
 		}
 
 		m_xa2 = WRL::Make<XAudio2DownlevelWrap>();
@@ -1265,47 +1276,14 @@ void MumbleAudioOutput::InitializeAudioDevice()
 
 	CoTaskMemFree(deviceId);
 
-	if (FAILED(m_xa2->CreateMasteringVoice(&m_masteringVoice, 0, 48000, 0, deviceIdStr.c_str())))
+ 	HRESULT res = m_xa2->CreateMasteringVoice(&m_masteringVoice, 0, 48000, 0, deviceIdStr.c_str());
+	if (FAILED(res))
 	{
 		trace("%s: failed CreateMasteringVoice\n", __func__);
 		return;
 	}
 
 	m_masteringVoice->SetVolume(m_volume);
-
-	if (IsWindows8Point1OrGreater())
-	{
-		IUnknown* reverbEffect;
-
-		HRESULT hr;
-
-		UINT32 rflags = 0;
-		if (FAILED(hr = _CreateAudioReverb(&reverbEffect)))
-		{
-			return;
-		}
-
-		//
-		// Create a submix voice
-		//
-
-		XAUDIO2_EFFECT_DESCRIPTOR effects[] = { { reverbEffect, TRUE, 1 } };
-		XAUDIO2_EFFECT_CHAIN effectChain = { 1, effects };
-
-		if (FAILED(hr = m_xa2->CreateSubmixVoice(&m_submixVoice, 1,
-			48000, 0, 0,
-			nullptr, &effectChain)))
-		{
-			return;
-		}
-
-		// Set default FX params
-		XAUDIO2FX_REVERB_PARAMETERS native;
-		XAUDIO2FX_REVERB_I3DL2_PARAMETERS preset = XAUDIO2FX_I3DL2_PRESET_DEFAULT;
-
-		ReverbConvertI3DL2ToNative(&preset, &native);
-		m_submixVoice->SetEffectParameters(0, &native, sizeof(native));
-	}
 
 	auto x3aDll = (HMODULE)LoadLibraryExW(L"XAudio2_8.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
 
@@ -1314,7 +1292,7 @@ void MumbleAudioOutput::InitializeAudioDevice()
 		x3aDll = LoadLibraryExW(L"X3DAudio1_7.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
 	}
 
-	if (x3aDll && IsWindows8Point1OrGreater())
+	if (x3aDll)
 	{
 		auto _X3DAudioInitialize = (decltype(&X3DAudioInitialize))GetProcAddress(x3aDll, "X3DAudioInitialize");
 		auto _X3DAudioCalculate = (decltype(&X3DAudioCalculate))GetProcAddress(x3aDll, "X3DAudioCalculate");

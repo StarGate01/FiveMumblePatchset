@@ -1,9 +1,11 @@
 #include "StdInc.h"
+#include "AudioUtils.h"
 
 #include <audioclient.h>
 #include <mmdeviceapi.h>
 #include <functiondiscoverykeys_devpkey.h>
 #include <wrl.h>
+#include <vector>
 
 #include <audiopolicy.h>
 
@@ -37,6 +39,42 @@ static HRESULT GetStringProp(IPropertyStore* bag, PROPERTYKEY key, std::string* 
 }
 
 WRL::ComPtr<IMMDevice> GetMMDeviceFromGUID(bool input, const std::string& guid)
+{
+	std::vector<AudioDevice> deviceList;
+	ListDevices(input, deviceList);
+
+	for (auto& device : deviceList)
+	{
+		if (device.guid == guid)
+		{
+			trace("Returning device %s for GUID %s\n", device.name, guid);
+			return device.device;
+		}
+	}
+
+	return nullptr;
+}
+
+void DuckingOptOut(WRL::ComPtr<IMMDevice> device)
+{
+	WRL::ComPtr<IAudioSessionManager2> sessionManager;
+
+	if (SUCCEEDED(device->Activate(__uuidof(IAudioSessionManager2), CLSCTX_INPROC_SERVER, NULL, &sessionManager)))
+	{
+		WRL::ComPtr<IAudioSessionControl> sessionControl;
+		WRL::ComPtr<IAudioSessionControl2> sessionControl2;
+
+		if (SUCCEEDED(sessionManager->GetAudioSessionControl(NULL, 0, &sessionControl)))
+		{
+			if (SUCCEEDED(sessionControl.As(&sessionControl2)))
+			{
+				sessionControl2->SetDuckingPreference(TRUE);
+			}
+		}
+	}
+}
+
+void ListDevices(bool input, std::vector<AudioDevice>& store)
 {
 	WRL::ComPtr<IMMDeviceEnumerator> mmDeviceEnumerator;
 	HRESULT hr = CoCreateInstance(CLSID_MMDeviceEnumerator, nullptr, CLSCTX_INPROC_SERVER, IID_IMMDeviceEnumerator, (void**)mmDeviceEnumerator.GetAddressOf());
@@ -87,34 +125,8 @@ WRL::ComPtr<IMMDevice> GetMMDeviceFromGUID(bool input, const std::string& guid)
 						continue;
 					}
 
-					// if the guid matches, return the device
-					if (testGuid == guid)
-					{
-						trace("Returning device %s for GUID %s\n", friendlyName, testGuid);
-						return device;
-					}
+					store.push_back({ testGuid, friendlyName, device });
 				}
-			}
-		}
-	}
-
-	return nullptr;
-}
-
-void DuckingOptOut(WRL::ComPtr<IMMDevice> device)
-{
-	WRL::ComPtr<IAudioSessionManager2> sessionManager;
-
-	if (SUCCEEDED(device->Activate(__uuidof(IAudioSessionManager2), CLSCTX_INPROC_SERVER, NULL, &sessionManager)))
-	{
-		WRL::ComPtr<IAudioSessionControl> sessionControl;
-		WRL::ComPtr<IAudioSessionControl2> sessionControl2;
-
-		if (SUCCEEDED(sessionManager->GetAudioSessionControl(NULL, 0, &sessionControl)))
-		{
-			if (SUCCEEDED(sessionControl.As(&sessionControl2)))
-			{
-				sessionControl2->SetDuckingPreference(TRUE);
 			}
 		}
 	}

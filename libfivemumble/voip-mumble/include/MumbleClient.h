@@ -24,6 +24,7 @@ struct MumbleConnectionInfo
 	bool isConnecting;
 	net::PeerAddress address;
 	std::string username;
+	std::string password;
 
 	inline MumbleConnectionInfo()
 		: isConnected(false), isConnecting(false)
@@ -75,7 +76,7 @@ public:
 public:
 	virtual void Initialize() = 0;
 
-	virtual concurrency::task<MumbleConnectionInfo*> ConnectAsync(const net::PeerAddress& address, const std::string& userName) = 0;
+	virtual concurrency::task<MumbleConnectionInfo*> ConnectAsync(const net::PeerAddress& address, const std::string& userName, const std::string& password) = 0;
 
 	virtual concurrency::task<void> DisconnectAsync() = 0;
 

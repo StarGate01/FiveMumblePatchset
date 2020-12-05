@@ -45,6 +45,7 @@
     <ClCompile Include="..\fivem\code\components\net-tcp-server\src\UvLoopHolder.cpp" />
     <ClCompile Include="..\fivem\code\components\net-tcp-server\src\UvLoopManager.cpp" />
     <ClCompile Include="..\fivem\code\components\net-tcp-server\src\UvTcpServer.cpp" />
+    <ClCompile Include="source\Mumble.cpp" />
     <ClCompile Include="voip-mumble\src\AudioUtils.cpp" />
     <ClCompile Include="voip-mumble\src\Mumble.pb.cc" />
     <ClCompile Include="voip-mumble\src\MumbleAudioInput.cpp" />
@@ -69,10 +70,95 @@
       <Project>{e0fdc75c-3d16-4a18-aeaa-3dcc5bdda106}</Project>
       <Private>false</Private>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\enet\enet.vcxproj">
+      <Project>{1d075a00-c067-4cb3-a1df-57cd95082875}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ffmpeg\ffmpeg.vcxproj">
+      <Project>{d797ddaa-9fa8-44cd-bec6-23b13dc0c4c7}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\fmtlib\fmt.vcxproj">
+      <Project>{52d8a7ac-9100-3afb-a0fb-91a8f7e31d2a}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\labsound\LabSound.vcxproj">
+      <Project>{49e752ba-00b5-3c55-9e80-263a6b5502e7}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\labsound\third_party\libnyquist\libnyquist.vcxproj">
+      <Project>{72dff787-0d40-3d07-9aab-1cb18b969925}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\labsound\third_party\libnyquist\libopus.vcxproj">
+      <Project>{a69f569b-dc34-3b84-a8eb-18eca6b2f4e3}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\labsound\third_party\libnyquist\libwavpack.vcxproj">
+      <Project>{195a366c-ee04-3d88-8b2e-13fb5ec680e2}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\libuv\uv_a.vcxproj">
+      <Project>{7863f3d0-d0c7-3f9e-be2a-9bec97f5f567}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\protobuf\libprotobuf.vcxproj">
+      <Project>{0cc54d48-850e-3122-90c4-19f64deb1aca}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\tbb\tbb.vcxproj">
+      <Project>{02642089-ea2a-4d18-bdb3-92d6e549d9c6}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="..\webrtc\webrtc.vcxproj">
+      <Project>{f2ef2043-92f1-409b-a1af-56a5aa5e9a6f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\fivem\code\client\shared\Registry.h" />
+    <ClInclude Include="include\CompilationControl.h" />
+    <ClInclude Include="include\Mumble.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="voip-mumble\include\AudioUtils.h" />
+    <ClInclude Include="voip-mumble\include\Mumble.pb.h" />
+    <ClInclude Include="voip-mumble\include\MumbleAudioInput.h" />
+    <ClInclude Include="voip-mumble\include\MumbleAudioOutput.h" />
+    <ClInclude Include="voip-mumble\include\MumbleAudioSink.h" />
+    <ClInclude Include="voip-mumble\include\MumbleClient.h" />
+    <ClInclude Include="voip-mumble\include\MumbleClientImpl.h" />
+    <ClInclude Include="voip-mumble\include\MumbleClientState.h" />
+    <ClInclude Include="voip-mumble\include\MumbleDataHandler.h" />
+    <ClInclude Include="voip-mumble\include\MumbleMessageHandler.h" />
+    <ClInclude Include="voip-mumble\include\MumbleTypes.h" />
+    <ClInclude Include="voip-mumble\include\PacketDataStream.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="libfivemumble.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -83,13 +169,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -109,23 +195,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)$(Configuration)</OutDir>
+    <OutDir>$(SolutionDir)$(Configuration)</OutDir>
     <IntDir>$(ProjectDir)\obj\$(Configuration)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)$(Configuration)</OutDir>
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)</OutDir>
     <IntDir>$(ProjectDir)\obj\$(Configuration)</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>IS_FXSERVER;WIN32;COMPILING_CORE;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;COMPILING_SHARED_LIBC;_LIB;COMPILING_NET;COMPILING_VOIP_MUMBLE;COMPILING_NET_BASE;COMPILING_NET_TCP_SERVER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>IS_FXSERVER;WIN32;_WIN32;COMPILING_CORE;__TBB_NO_IMPLICIT_LINKAGE;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;COMPILING_SHARED_LIBC;COMPILING_NET;COMPILING_VOIP_MUMBLE;COMPILING_NET_BASE;COMPILING_NET_TCP_SERVER;_LIB;MAKEDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client\common;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\fivem\code\client\citicore;$(ProjectDir)\..\botan\botan\build\include;$(ProjectDir)\voip-mumble\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client\common;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\fivem\code\client\citicore;$(ProjectDir)\..\botan\botan\build\include;$(ProjectDir)\voip-mumble\include;$(ProjectDir)\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
@@ -135,14 +221,29 @@
       <SubSystem>
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\voip-mumble\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tbb.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\ffmpeg\Release\lib;$(ProjectDir)\..\fmtlib\Release;$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\botan;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\labsound\bin\Release;$(ProjectDir)\..\webrtc\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;winmm.lib;botan.lib;enet.lib;tbb.lib;uv_a.lib;libprotobuf.lib;LabSound.lib;libnyquist.lib;libopus.lib;libwavpack.lib;fmt.lib;webrtc.lib;user32.lib;avcodec.lib;avdevice.lib;avfilter.lib;avformat.lib;avutil.lib;postproc.lib;swresample.lib;swscale.lib;bcrypt.lib;Iphlpapi.lib;Advapi32.lib;Kernel32.lib;Psapi.lib;Userenv.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <OptimizeReferences>true</OptimizeReferences>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <MinimumRequiredVersion>
+      </MinimumRequiredVersion>
     </Link>
     <Lib>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TreatLibWarningAsErrors>true</TreatLibWarningAsErrors>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <ForceSymbolReferences>
+      </ForceSymbolReferences>
     </Lib>
+    <Manifest>
+      <AdditionalManifestFiles>
+      </AdditionalManifestFiles>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -150,11 +251,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>IS_FXSERVER;WIN32;COMPILING_CORE;NDEBUG;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;COMPILING_SHARED_LIBC;_LIB;COMPILING_NET;COMPILING_VOIP_MUMBLE;COMPILING_NET_BASE;COMPILING_NET_TCP_SERVER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>IS_FXSERVER;WIN32;_WIN32;COMPILING_CORE;__TBB_NO_IMPLICIT_LINKAGE;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;WEBRTC_WIN;WEBRTC_AUDIO_PROCESSING_ONLY_BUILD;COMPILING_SHARED_LIBC;COMPILING_NET;COMPILING_VOIP_MUMBLE;COMPILING_NET_BASE;COMPILING_NET_TCP_SERVER;_LIB;MAKEDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client\common;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\fivem\code\client\citicore;$(ProjectDir)\..\botan\botan\build\include;$(ProjectDir)\voip-mumble\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client\common;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\fivem\code\client\citicore;$(ProjectDir)\..\botan\botan\build\include;$(ProjectDir)\voip-mumble\include;$(ProjectDir)\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
@@ -168,8 +269,14 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\voip-mumble\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tbb.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\ffmpeg\Release\lib;$(ProjectDir)\..\fmtlib\Release;$(ProjectDir)\..\tbb\Release;$(ProjectDir)\..\enet\Release;$(ProjectDir)\..\botan\botan;$(ProjectDir)\..\protobuf\Release;$(ProjectDir)\..\labsound\bin\Release;$(ProjectDir)\..\webrtc\Release;$(ProjectDir)\..\libuv\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;winmm.lib;botan.lib;enet.lib;tbb.lib;uv_a.lib;libprotobuf.lib;LabSound.lib;libnyquist.lib;libopus.lib;libwavpack.lib;fmt.lib;webrtc.lib;user32.lib;avcodec.lib;avdevice.lib;avfilter.lib;avformat.lib;avutil.lib;postproc.lib;swresample.lib;swscale.lib;bcrypt.lib;Iphlpapi.lib;Advapi32.lib;Kernel32.lib;Psapi.lib;Userenv.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <MinimumRequiredVersion>
+      </MinimumRequiredVersion>
     </Link>
     <Lib>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
@@ -177,7 +284,15 @@
     <Lib>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TreatLibWarningAsErrors>true</TreatLibWarningAsErrors>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <ForceSymbolReferences>
+      </ForceSymbolReferences>
     </Lib>
+    <Manifest>
+      <AdditionalManifestFiles>
+      </AdditionalManifestFiles>
+    </Manifest>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

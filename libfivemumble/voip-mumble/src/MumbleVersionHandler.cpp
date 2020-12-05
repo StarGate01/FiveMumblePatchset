@@ -17,9 +17,13 @@ DEFINE_HANDLER(Version)
 	auto username = client->GetState().GetUsername();
 	auto usernameUtf8 = ConvertToUTF8(username);
 
+	auto password = client->GetState().GetPassword();
+	auto passwordUtf8 = ConvertToUTF8(password);
+
 	MumbleProto::Authenticate authenticate;
 	authenticate.set_opus(true);
 	authenticate.set_username(usernameUtf8);
+	authenticate.set_password(passwordUtf8);
 
 	client->Send(MumbleMessageType::Authenticate, authenticate);
 

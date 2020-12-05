@@ -82,7 +82,7 @@ class MumbleClient : public IMumbleClient, public Botan::TLS::Callbacks
 public:
 	virtual void Initialize() override;
 
-	virtual concurrency::task<MumbleConnectionInfo*> ConnectAsync(const net::PeerAddress& address, const std::string& userName) override;
+	virtual concurrency::task<MumbleConnectionInfo*> ConnectAsync(const net::PeerAddress& address, const std::string& userName, const std::string& password) override;
 
 	virtual concurrency::task<void> DisconnectAsync() override;
 

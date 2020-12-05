@@ -94,6 +94,8 @@ private:
 
 	std::wstring m_username;
 
+	std::wstring m_password;
+
 	std::map<uint32_t, MumbleChannel> m_channels;
 
 	std::shared_mutex m_usersMutex;
@@ -106,6 +108,7 @@ public:
 		m_client = nullptr;
 		m_session = 0;
 		m_username = L"";
+		m_password = L"";
 		m_channels.clear();
 		m_users.clear();
 	}
@@ -115,6 +118,10 @@ public:
 	inline void SetUsername(std::wstring& value) { m_username = value; }
 
 	inline std::wstring GetUsername() { return m_username; }
+
+	inline void SetPassword(std::wstring& value) { m_password = value; }
+
+	inline std::wstring GetPassword() { return m_password; }
 
 	inline void SetSession(uint32_t sessionId) { m_session = sessionId; }
 

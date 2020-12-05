@@ -10,15 +10,6 @@
     <Filter Include="components\net-tcp-server">
       <UniqueIdentifier>{8a72edc0-16c8-46c0-8aad-33fa39c6081c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="components\net">
-      <UniqueIdentifier>{a56e7f67-ea11-4789-adf3-8539133240cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="components\http-client">
-      <UniqueIdentifier>{23c01dec-110c-46f0-a531-fc0028766724}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="components\vfs-core">
-      <UniqueIdentifier>{4977ccdc-f88d-46f6-8a88-ca2853c5c544}</UniqueIdentifier>
-    </Filter>
     <Filter Include="components\net-base">
       <UniqueIdentifier>{1c72b829-b774-41ab-a50e-ce23082d62ca}</UniqueIdentifier>
     </Filter>
@@ -40,53 +31,20 @@
     <Filter Include="client\citicore\se">
       <UniqueIdentifier>{6963de53-07c9-4b8d-823a-4f245689dc1e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{42420ce4-7d55-4ae7-a528-28f95b709c28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{0ba7421f-ebba-4968-8740-a3c7c4b0b7bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\voip-mumble\source">
+      <UniqueIdentifier>{404ab240-3665-4248-ab61-853d566d42dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\voip-mumble\include">
+      <UniqueIdentifier>{b303f520-e578-427e-9d30-0e1a08f49b36}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="voip-mumble\src\AudioUtils.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\Mumble.pb.cc">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleAudioInput.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleAudioOutput.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleChannelHandler.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleClient.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleClientState_Channel.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleClientState_User.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleCrypto.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleDataHandler.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleMessageHandler.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleProtobuf.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleUDPTunnelHandler.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleUserHandler.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleVersionHandler.cpp">
-      <Filter>components\voip-mumble</Filter>
-    </ClCompile>
     <ClCompile Include="..\fivem\code\components\net-base\src\ConcatPipe.cpp">
       <Filter>components\net-base</Filter>
     </ClCompile>
@@ -189,6 +147,54 @@
     <ClCompile Include="..\fivem\code\client\shared\Utils.Win32.cpp">
       <Filter>client\shared</Filter>
     </ClCompile>
+    <ClCompile Include="source\Mumble.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\AudioUtils.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\Mumble.pb.cc">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleAudioInput.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleAudioOutput.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleChannelHandler.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleClient.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleClientState_Channel.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleClientState_User.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleCrypto.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleDataHandler.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleMessageHandler.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleProtobuf.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleUDPTunnelHandler.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleUserHandler.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
+    <ClCompile Include="voip-mumble\src\MumbleVersionHandler.cpp">
+      <Filter>components\voip-mumble\source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -197,5 +203,51 @@
     <ClInclude Include="..\fivem\code\client\shared\Registry.h">
       <Filter>client\shared</Filter>
     </ClInclude>
+    <ClInclude Include="include\Mumble.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="include\CompilationControl.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\Mumble.pb.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\MumbleAudioInput.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\MumbleAudioOutput.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\MumbleAudioSink.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\MumbleClient.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\MumbleClientImpl.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\MumbleClientState.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\MumbleDataHandler.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\MumbleMessageHandler.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\MumbleTypes.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\PacketDataStream.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+    <ClInclude Include="voip-mumble\include\AudioUtils.h">
+      <Filter>components\voip-mumble\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="libfivemumble.rc" />
   </ItemGroup>
 </Project>
