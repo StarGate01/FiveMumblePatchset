@@ -150,49 +150,49 @@
     <ClCompile Include="source\Mumble.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\AudioUtils.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\AudioUtils.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\Mumble.pb.cc">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\Mumble.pb.cc">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleAudioInput.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleAudioInput.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleAudioOutput.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleAudioOutput.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleChannelHandler.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleChannelHandler.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleClient.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleClient.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleClientState_Channel.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleClientState_Channel.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleClientState_User.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleClientState_User.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleCrypto.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleCrypto.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleDataHandler.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleDataHandler.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleMessageHandler.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleMessageHandler.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleProtobuf.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleProtobuf.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleUDPTunnelHandler.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleUDPTunnelHandler.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleUserHandler.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleUserHandler.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
-    <ClCompile Include="voip-mumble\src\MumbleVersionHandler.cpp">
+    <ClCompile Include="..\fivem\code\components\voip-mumble\src\MumbleVersionHandler.cpp">
       <Filter>components\voip-mumble\source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -210,40 +210,40 @@
     <ClInclude Include="include\CompilationControl.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\Mumble.pb.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\Mumble.pb.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\MumbleAudioInput.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleAudioInput.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\MumbleAudioOutput.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleAudioOutput.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\MumbleAudioSink.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleAudioSink.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\MumbleClient.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleClient.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\MumbleClientImpl.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleClientImpl.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\MumbleClientState.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleClientState.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\MumbleDataHandler.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleDataHandler.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\MumbleMessageHandler.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleMessageHandler.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\MumbleTypes.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleTypes.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\PacketDataStream.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\PacketDataStream.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
-    <ClInclude Include="voip-mumble\include\AudioUtils.h">
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\AudioUtils.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
   </ItemGroup>
