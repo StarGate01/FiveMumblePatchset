@@ -141,10 +141,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\fivem\code\client\shared\Registry.h" />
+    <ClInclude Include="..\fivem\code\components\voip-mumble\include\AudioUtils.h" />
     <ClInclude Include="include\CompilationControl.h" />
     <ClInclude Include="include\Mumble.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="..\fivem\code\components\voip-mumble\include\AudioUtils.h" />
     <ClInclude Include="..\fivem\code\components\voip-mumble\include\Mumble.pb.h" />
     <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleAudioInput.h" />
     <ClInclude Include="..\fivem\code\components\voip-mumble\include\MumbleAudioOutput.h" />
@@ -211,11 +211,12 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client\common;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\fivem\code\client\citicore;$(ProjectDir)\..\botan\botan\build\include;$(ProjectDir)\..\fivem\code\components\voip-server-mumble\include;$(ProjectDir)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client\common;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\fivem\code\client\citicore;$(ProjectDir)\..\botan\botan\build\include;$(ProjectDir)\..\fivem\code\components\voip-mumble\include;$(ProjectDir)\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>4005;4018</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -255,13 +256,14 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client\common;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\fivem\code\client\citicore;$(ProjectDir)\..\botan\botan\build\include;$(ProjectDir)\..\fivem\code\components\voip-server-mumble\include;$(ProjectDir)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\fivem\vendor\utfcpp\source;$(ProjectDir)\..\fivem\vendor\tbb\include;$(ProjectDir)\..\fivem\vendor\libuv\include;$(ProjectDir)\..\fivem\vendor\uvw\src;$(ProjectDir)\..\fivem\vendor\webrtc-audio-processing;$(ProjectDir)\..\fivem\vendor\libopus\include;$(ProjectDir)\..\fivem\vendor\labsound\third_party\libnyquist\include;$(ProjectDir)\..\fivem\vendor\labsound\include;$(ProjectDir)\..\fivem\vendor\protobuf\src;$(ProjectDir)\..\fivem\vendor\fmtlib\include;$(ProjectDir)\..\fivem\vendor\enet\include;$(ProjectDir)\..\fivem\code\components\net-base\include;$(ProjectDir)\..\fivem\code\components\net\include;$(ProjectDir)\..\fivem\code\components\net-tcp-server\include;$(ProjectDir)\..\fivem\code\components\vfs-core\include;$(ProjectDir)\..\fivem\code\components\http-client\include;$(ProjectDir)\..\fivem\code\client\shared;$(ProjectDir)\..\fivem\code\client\common;$(ProjectDir)\..\fivem\code\client;$(ProjectDir)\..\fivem\code\shared;$(ProjectDir)\..\fivem\code\client\citicore;$(ProjectDir)\..\botan\botan\build\include;$(ProjectDir)\..\fivem\code\components\voip-mumble\include;$(ProjectDir)\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ObjectFileName>$(IntDir)/%(RelativeDir)</ObjectFileName>
       <Optimization>Disabled</Optimization>
+      <DisableSpecificWarnings>4005;4018</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>
