@@ -83,6 +83,26 @@ void Mumble::Test(const std::string& name)
 
 				client.SetChannel("CHRZ");
 				client.AddListenChannel("CHRZ");
+
+				auto findCh = [&](const std::string& ch)
+				{
+					std::wstring wname = ToWide(ch);
+
+					for (const auto& channel : client.GetState().GetChannels())
+					{
+						if (channel.second.GetName() == wname)
+						{
+							return channel.first;
+						}
+					}
+
+					return uint32_t(-1);
+				};
+
+				MumbleProto::TextMessage msg;
+				msg.set_message("testapp is in the house!");
+				msg.add_channel_id(findCh("CHRZ"));
+				client.Send(MumbleMessageType::TextMessage, msg);
 			}
 			catch (std::exception& e)
 			{
