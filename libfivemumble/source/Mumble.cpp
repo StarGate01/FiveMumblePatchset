@@ -39,8 +39,8 @@ void Mumble::Test(const std::string& name)
 
 	console::GetDefaultContext()->ExecuteSingleCommand("developer 1");
 
-	client.Initialize();
-	console::GetDefaultContext()->ExecuteSingleCommand("voice_inBitrate 48000");
+	
+	//console::GetDefaultContext()->ExecuteSingleCommand("voice_inBitrate 48000");
 	//console::GetDefaultContext()->ExecuteSingleCommand("voice_useNativeAudio true");
 
 	// Handle audio devices
@@ -63,12 +63,13 @@ void Mumble::Test(const std::string& name)
 	}
 
 	// Setup client
-	client.SetInputDevice(inputDevices[2].guid);
+	client.SetInputDevice(inputDevices[0].guid);
 	client.EnableAudioInput();
 	client.SetOutputDevice(outputDevices[1].guid);
 	client.SetPositionHook([](const std::string& name) {
 		return std::optional<std::array<float, 3>>({ 0.0f, 0.0f, 0.0f });
-		});
+	});
+	client.Initialize();
 
 	client.ConnectAsync(remote.get(), name, "grafkuerb").then([](concurrency::task<MumbleConnectionInfo*> task)
 		{
