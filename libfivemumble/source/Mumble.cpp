@@ -24,6 +24,25 @@ std::vector<AudioDevice> outputDevices;
 
 void Mumble::Test(const std::string& name)
 {
+	InitFunctionBase::RunAll();
+	se::Principal devp = se::Principal{ "system.developer" };
+	se::Principal mump = se::Principal{ "system.mumble" };
+	se::Context* ctx = seGetCurrentContext();
+	ctx->PushPrincipal(devp);
+	ctx->PushPrincipal(mump);
+	ctx->AddAccessControlEntry(devp, se::Object{ "command.developer" }, se::AccessType::Allow);
+	ctx->AddAccessControlEntry(mump, se::Object{ "command.voice_inBitrate" }, se::AccessType::Allow);
+	ctx->AddAccessControlEntry(mump, se::Object{ "command.voice_use3dAudio" }, se::AccessType::Allow);
+	ctx->AddAccessControlEntry(mump, se::Object{ "command.voice_useSendingRangeOnly" }, se::AccessType::Allow);
+	ctx->AddAccessControlEntry(mump, se::Object{ "command.voice_use2dAudio" }, se::AccessType::Allow);
+	ctx->AddAccessControlEntry(mump, se::Object{ "command.voice_useNativeAudio" }, se::AccessType::Allow);
+
+	console::GetDefaultContext()->ExecuteSingleCommand("developer 1");
+
+	client.Initialize();
+	console::GetDefaultContext()->ExecuteSingleCommand("voice_inBitrate 48000");
+	//console::GetDefaultContext()->ExecuteSingleCommand("voice_useNativeAudio true");
+
 	// Handle audio devices
 	CoInitializeEx(nullptr, COINIT_MULTITHREADED);
 	ListDevices(true, inputDevices);
@@ -44,9 +63,9 @@ void Mumble::Test(const std::string& name)
 	}
 
 	// Setup client
-	client.Initialize();
-	client.SetInputDevice(inputDevices[0].guid);
-	client.SetOutputDevice(outputDevices[0].guid);
+	client.SetInputDevice(inputDevices[2].guid);
+	client.EnableAudioInput();
+	client.SetOutputDevice(outputDevices[1].guid);
 	client.SetPositionHook([](const std::string& name) {
 		return std::optional<std::array<float, 3>>({ 0.0f, 0.0f, 0.0f });
 		});
