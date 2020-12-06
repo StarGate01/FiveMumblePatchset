@@ -70,6 +70,7 @@ void Mumble::Test(const std::string& name)
 		return std::optional<std::array<float, 3>>({ 0.0f, 0.0f, 0.0f });
 	});
 	client.Initialize();
+	// console::GetDefaultContext()->ExecuteSingleCommand("voice_use3dAudio true");
 
 	client.ConnectAsync(remote.get(), name, "grafkuerb").then([](concurrency::task<MumbleConnectionInfo*> task)
 		{

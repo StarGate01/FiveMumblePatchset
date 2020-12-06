@@ -23,22 +23,23 @@ If needed, adjust the toolchain paths in `setup.bat` and `ffmpeg/build.sh`.
 
 **Run `setup.bat`**.  This will apply a few patches to the build toolchains and generate the missing Visual Studio projects by invoking CMake or other build tools. **Then** open the Visual Studio Solution. Compile the `libfivemumble` or `testapp` project.
 
-## Subprojects and how they are generated
+## Subprojects, how they are generated and licensing
 
-- ffmpeg (autotools) (Requires Msys2)
-- botan (python)
-- enet (VS)
-- fmt (CMake)
-- tbb (VS)
-- uv (CMake)
-- webrtc (VS)
-- libprotobuf (CMake)
-- LabSound (CMake)
+- ffmpeg (autotools, requires Msys2) (GPL/LGPL)
+- botan (python) (BSD2 Clause)
+- enet (VS) (MIT)
+- fmt (CMake) (Custom)
+- tbb (VS) (Apache2)
+- uv (CMake) (Custom)
+- webrtc (VS) (BSD3 Clause)
+- libprotobuf (CMake) (Custom)
+- LabSound (CMake) (BSD2 Clause)
   - libnyquist
   - libopus
   - libwavpack
-- libfivemumble (VS)
-- testapp (VS)
+- fivem (VS) (Custom)
+- libfivemumble (VS) (GPLV3)
+- testapp (VS) (GPLV3)
 
 ## Static linking
 
