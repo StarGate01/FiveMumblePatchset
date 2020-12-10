@@ -246,6 +246,9 @@
     <ClInclude Include="..\fivem\code\components\voip-mumble\include\AudioUtils.h">
       <Filter>components\voip-mumble\include</Filter>
     </ClInclude>
+    <ClInclude Include="include\AudioDeviceInfo.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="libfivemumble.rc" />

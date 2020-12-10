@@ -10,21 +10,18 @@
 
 #include <AudioUtils.h>
 
-Mumble::Mumble()
+
+Mumble::Mumble(ConnectionCallbackHandler conHandler, TextMessageCallbackHandler msgHandler, PositionCallbackHandler posHandler):
+	connectionHandler(conHandler),
+	textMessageHandler(msgHandler),
+	positionHandler(posHandler)
 {
+	client = new MumbleClient();
 
-}
-
-std::wstring_convert<std::codecvt_utf8<wchar_t>> wideToNarrow;
-
-MumbleClient client;
-
-std::vector<AudioDevice> inputDevices;
-std::vector<AudioDevice> outputDevices;
-
-void Mumble::Test(const std::string& name)
-{
+	// Initialize and register components
 	InitFunctionBase::RunAll();
+
+	// Setup command security
 	se::Principal devp = se::Principal{ "system.developer" };
 	se::Principal mump = se::Principal{ "system.mumble" };
 	se::Context* ctx = seGetCurrentContext();
@@ -37,94 +34,150 @@ void Mumble::Test(const std::string& name)
 	ctx->AddAccessControlEntry(mump, se::Object{ "command.voice_use2dAudio" }, se::AccessType::Allow);
 	ctx->AddAccessControlEntry(mump, se::Object{ "command.voice_useNativeAudio" }, se::AccessType::Allow);
 
+	// Enable debug messages
 	console::GetDefaultContext()->ExecuteSingleCommand("developer 1");
 
-	
 	//console::GetDefaultContext()->ExecuteSingleCommand("voice_inBitrate 48000");
 	//console::GetDefaultContext()->ExecuteSingleCommand("voice_useNativeAudio true");
 
-	// Handle audio devices
-	CoInitializeEx(nullptr, COINIT_MULTITHREADED);
-	ListDevices(true, inputDevices);
-	ListDevices(false, outputDevices);
-	std::cout << "Input devices:" << std::endl;
-	for (int i = 0; i < inputDevices.size(); i++) std::cout << "  " << i << ": " <<
-		inputDevices[i].name << std::endl << "    " << inputDevices[i].guid << std::endl;
-	std::cout << "Output devices:" << std::endl;
-	for (int i = 0; i < outputDevices.size(); i++) std::cout << "  " << i << ": " <<
-		outputDevices[i].name << std::endl << "    " << outputDevices[i].guid << std::endl;
+	// Set position hook
+	client->SetPositionHook([this](const std::string& name) {
+		positionHandler(currentPosition);
+		return std::optional<std::array<float, 3>>(currentPosition);
+	});
 
-	// Handle server name
-	auto remote = net::PeerAddress::FromString("chrz.de", 64738, net::PeerAddress::LookupType::ResolveName);
+	// Initialize
+	connected = false;
+	currentChannel = "";
+	client->Initialize();
+}
+
+Mumble::~Mumble()
+{
+	delete client;
+}
+
+std::vector<AudioDeviceInfo> Mumble::GetInputDevices()
+{
+	CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+	std::vector<AudioDevice> devices;
+	ListDevices(true, devices);
+	std::vector<AudioDeviceInfo> result;
+	for (auto& device : devices) result.push_back({ device.name, device.guid });
+	return result;
+}
+
+std::vector<AudioDeviceInfo> Mumble::GetOutputDevices()
+{
+	CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+	std::vector<AudioDevice> devices;
+	ListDevices(false, devices);
+	std::vector<AudioDeviceInfo> result;
+	for (auto& device : devices) result.push_back({ device.name, device.guid });
+	return result;
+}
+
+void Mumble::ConnectAsync(const std::string& address, const std::string& username, const std::string& password, int port)
+{
+	auto remote = net::PeerAddress::FromString(address, port, net::PeerAddress::LookupType::ResolveName);
 	if (!remote.has_value())
 	{
-		std::cerr << "Cannot resolve remote address!" << std::endl;
+		HandleConnectionCallback(MumbleConnectionEventType::ConnectionError,
+			"DNS lookup failed");
 		return;
 	}
-
-	// Setup client
-	client.SetInputDevice(inputDevices[0].guid);
-	client.EnableAudioInput();
-	client.SetOutputDevice(outputDevices[1].guid);
-	client.SetPositionHook([](const std::string& name) {
-		return std::optional<std::array<float, 3>>({ 0.0f, 0.0f, 0.0f });
-	});
-	client.Initialize();
-	// console::GetDefaultContext()->ExecuteSingleCommand("voice_use3dAudio true");
-
-	client.ConnectAsync(remote.get(), name, "grafkuerb").then([](concurrency::task<MumbleConnectionInfo*> task)
+	client->ConnectAsync(remote.get(), username, password).then([this](concurrency::task<MumbleConnectionInfo*> task)
 		{
 			try
 			{
 				auto info = task.get();
-				std::cout << "Connected, server: " << info->address.ToString() <<
-					", user: " << info->username << ", connected: " << (info->isConnected ? "true" : "false") <<
-					", connecting: " << (info->isConnecting ? "true" : "false") << std::endl;
-
-				client.SetChannel("CHRZ");
-				client.AddListenChannel("CHRZ");
-
-				auto findCh = [&](const std::string& ch)
+				if (info->isConnected)
 				{
-					std::wstring wname = ToWide(ch);
-
-					for (const auto& channel : client.GetState().GetChannels())
-					{
-						if (channel.second.GetName() == wname)
-						{
-							return channel.first;
-						}
-					}
-
-					return uint32_t(-1);
-				};
-
-				MumbleProto::TextMessage msg;
-				msg.set_message("testapp is in the house!");
-				msg.add_channel_id(findCh("CHRZ"));
-				client.Send(MumbleMessageType::TextMessage, msg);
+					HandleConnectionCallback(MumbleConnectionEventType::Connected, 
+						"Connected to " + info->address.ToString() + " as user " + info->username);
+				}
+				else
+				{
+					HandleConnectionCallback(MumbleConnectionEventType::ConnectionError, 
+						"Did not connect");
+				}
 			}
 			catch (std::exception& e)
 			{
-				trace("Error connecting: %s\n", e.what());
-			}
+				HandleConnectionCallback(MumbleConnectionEventType::ConnectionError, e.what());
+			}	
 		});
+}
 
-	bool ESCAPE = false;
-	while (!ESCAPE)
-	{
-		if (GetAsyncKeyState(VK_ESCAPE))
+void Mumble::DisconnectAsync()
+{
+	client->DisconnectAsync().then([this](concurrency::task<void> task)
 		{
-			ESCAPE = true;
-			break;
-		}
+			currentChannel = "";
+			HandleConnectionCallback(MumbleConnectionEventType::Disconnected, "Disconnected");
+		});
+}
 
-		client.RunFrame();
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
-	}
+void Mumble::SetInputDevice(const std::string& guid)
+{
+	client->SetInputDevice(guid);
+	client->EnableAudioInput();
+}
 
-	if (client.GetConnectionInfo()->isConnected)
+void Mumble::SetOutputDevice(const std::string& guid)
+{
+	client->SetOutputDevice(guid);
+}
+
+void Mumble::RunFrame()
+{
+	client->RunFrame();
+}
+
+void Mumble::SetChannel(const std::string& channel)
+{
+	if(currentChannel != "") client->RemoveListenChannel(currentChannel);
+
+	client->SetChannel(channel);
+	client->AddListenChannel(channel);
+
+	currentChannel = channel;
+}
+
+bool Mumble::SendTextMessage(const std::string& message)
+{
+	if (currentChannel != "")
 	{
-		client.DisconnectAsync().wait();
+		// Find channel id
+		std::wstring wname = ToWide(currentChannel);
+		for (const auto& channel : client->GetState().GetChannels())
+		{
+			if (channel.second.GetName() == wname)
+			{
+				// Assemble message packet
+				MumbleProto::TextMessage msg;
+				msg.set_message(message);
+				msg.add_channel_id(channel.first);
+				client->Send(MumbleMessageType::TextMessage, msg);
+
+				return true;
+			}
+		}
 	}
+	return false;
+}
+
+void Mumble::HandleConnectionCallback(MumbleConnectionEventType type, const std::string& info)
+{
+	switch (type)
+	{
+	case MumbleConnectionEventType::Connected:
+		connected = true;
+		break;
+	case MumbleConnectionEventType::ConnectionError:
+	case MumbleConnectionEventType::Disconnected:
+		connected = false;
+		break;
+	}
+	connectionHandler(type, info);
 }

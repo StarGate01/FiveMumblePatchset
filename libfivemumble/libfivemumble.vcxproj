@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="..\fivem\code\client\shared\Registry.h" />
     <ClInclude Include="..\fivem\code\components\voip-mumble\include\AudioUtils.h" />
+    <ClInclude Include="include\AudioDeviceInfo.h" />
     <ClInclude Include="include\CompilationControl.h" />
     <ClInclude Include="include\Mumble.h" />
     <ClInclude Include="resource.h" />
